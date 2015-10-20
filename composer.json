@@ -1,6 +1,6 @@
 {
     "name": "citco/carbon",
-    "description": "This is a wrapper for nesbot/carbon which also calculates which days are British bank holidays (England &amp; Wales only).",    
+    "description": "This is a wrapper for nesbot/carbon which also calculates which days are British bank holidays (England & Wales only).",    
     "keywords": ["british","england","wales","bank","holiday","holidays"],
     "license": "MIT",
     "require": {
