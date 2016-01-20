@@ -114,32 +114,32 @@ class Carbon extends \Carbon\Carbon {
 		return $summer_bank_holiday;
 	}
 
-	public function getBoxingDayBankHoliday($date = null)
-	{
-		$date = $this->getDate($date);
-
-		$day_of_week = (new static)->parse("{$date->year}-12-25")->dayOfWeek;
-
-		$boxing_day_bank_holiday = "{$date->year}-12-25";
-		$day_of_week == 0 AND $boxing_day_bank_holiday = "{$date->year}-12-26";
-		$day_of_week == 5 AND $boxing_day_bank_holiday = "{$date->year}-12-25";
-		$day_of_week == 6 AND $boxing_day_bank_holiday = "{$date->year}-12-27";
-
-		return $boxing_day_bank_holiday;
-	}
-
 	public function getChristmasBankHoliday($date = null)
 	{
 		$date = $this->getDate($date);
 
 		$day_of_week = (new static)->parse("{$date->year}-12-25")->dayOfWeek;
 
-		$christmas_bank_holiday = "{$date->year}-12-26";
-		$day_of_week == 0 AND $christmas_bank_holiday = "{$date->year}-12-27";
-		$day_of_week == 5 AND $christmas_bank_holiday = "{$date->year}-12-28";
-		$day_of_week == 6 AND $christmas_bank_holiday = "{$date->year}-12-28";
+		$christmas_bank_holiday = "{$date->year}-12-25";
+		$day_of_week == 0 AND $christmas_bank_holiday = "{$date->year}-12-26";
+		$day_of_week == 5 AND $christmas_bank_holiday = "{$date->year}-12-25";
+		$day_of_week == 6 AND $christmas_bank_holiday = "{$date->year}-12-27";
 
 		return $christmas_bank_holiday;
+	}
+
+	public function getBoxingDayBankHoliday($date = null)
+	{
+		$date = $this->getDate($date);
+
+		$day_of_week = (new static)->parse("{$date->year}-12-25")->dayOfWeek;
+
+		$boxing_day_bank_holiday = "{$date->year}-12-26";
+		$day_of_week == 0 AND $boxing_day_bank_holiday = "{$date->year}-12-27";
+		$day_of_week == 5 AND $boxing_day_bank_holiday = "{$date->year}-12-28";
+		$day_of_week == 6 AND $boxing_day_bank_holiday = "{$date->year}-12-28";
+
+		return $boxing_day_bank_holiday;
 	}
 
 	public function getBankHolidays($dates = null)
@@ -161,8 +161,8 @@ class Carbon extends \Carbon\Carbon {
 			$bank_holidays[$this->getEarlyMayBankHoliday($date)] = 'Early May Bank Holiday';
 			$bank_holidays[$this->getSpringBankHoliday($date)] = 'Spring Bank Holiday';
 			$bank_holidays[$this->getSummerBankHoliday($date)] = 'Summer Bank Holiday';
-			$bank_holidays[$this->getBoxingDayBankHoliday($date)] = 'Boxing Day';
 			$bank_holidays[$this->getChristmasBankHoliday($date)] = 'Christmas Day Holiday';
+			$bank_holidays[$this->getBoxingDayBankHoliday($date)] = 'Boxing Day';
 
 			$date->year == 1999 AND $bank_holidays['1999-12-31'] = 'Millennium Eve';
 			$date->year == 2002 AND $bank_holidays['2002-06-03'] = 'Golden Jubilee Holiday';
