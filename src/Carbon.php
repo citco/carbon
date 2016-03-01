@@ -121,7 +121,7 @@ class Carbon extends \Carbon\Carbon {
 		$day_of_week = (new static)->parse("{$date->year}-12-25")->dayOfWeek;
 
 		$christmas_bank_holiday = "{$date->year}-12-25";
-		$day_of_week == 0 AND $christmas_bank_holiday = "{$date->year}-12-26";
+		$day_of_week == 0 AND $christmas_bank_holiday = "{$date->year}-12-27";
 		$day_of_week == 5 AND $christmas_bank_holiday = "{$date->year}-12-25";
 		$day_of_week == 6 AND $christmas_bank_holiday = "{$date->year}-12-27";
 
@@ -135,7 +135,7 @@ class Carbon extends \Carbon\Carbon {
 		$day_of_week = (new static)->parse("{$date->year}-12-25")->dayOfWeek;
 
 		$boxing_day_bank_holiday = "{$date->year}-12-26";
-		$day_of_week == 0 AND $boxing_day_bank_holiday = "{$date->year}-12-27";
+		$day_of_week == 0 AND $boxing_day_bank_holiday = "{$date->year}-12-26";
 		$day_of_week == 5 AND $boxing_day_bank_holiday = "{$date->year}-12-28";
 		$day_of_week == 6 AND $boxing_day_bank_holiday = "{$date->year}-12-28";
 
