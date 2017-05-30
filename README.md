@@ -44,7 +44,7 @@ echo "Today is ", (new Carbon)->isBankHoliday() ?: "not bank holiday";
 ```
 
 <a name="sample-code"></a>
-###Sample code
+### Sample code
 
 Here are some samples on using this class:
 ```php
