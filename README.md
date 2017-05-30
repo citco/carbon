@@ -93,15 +93,15 @@ $c->previousBankHolidays($n, Carbon::parse('Next year May 1st'));
 ```
 
 <a name="issues"></a>
-###Issues
+### Issues
 Bug reports and feature requests can be submitted on the [Github Issue Tracker](https://github.com/citco/carbon/issues).
 
 <a name="requirements"></a>
-###Requirements
+### Requirements
 
 PHP 5.3 or above (at least 5.3.4 recommended to avoid potential bugs)
 
 <a name="license"></a>
-###License
+### License
 
 Bank Holidays is licensed under the MIT License - see the LICENSE file for details
