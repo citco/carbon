@@ -49,10 +49,10 @@ class Carbon extends \Carbon\Carbon {
 	{
 		$date = $this->getDate($date);
 
-		if ($date->year == 1995)
+		if (in_array($date->year, array(1995, 2020)))
 		{
 			// Victory in Europe day
-			return '1995-05-08';
+			return "{$date->year}-05-08";
 		}
 
 		$day_of_week = (new static)->parse("{$date->year}-05-01")->dayOfWeek;
