@@ -49,7 +49,7 @@ class Carbon extends \Carbon\Carbon {
 	{
 		$date = $this->getDate($date);
 
-		if (in_array($date->year, array(1995, 2020)))
+		if (in_array($date->year, [1995, 2020]))
 		{
 			// Victory in Europe day
 			return "{$date->year}-05-08";
@@ -144,14 +144,14 @@ class Carbon extends \Carbon\Carbon {
 
 	public function getBankHolidays($dates = null)
 	{
-		is_array($dates) OR $dates = array($dates);
+		is_array($dates) OR $dates = [$dates];
 
 		foreach ($dates as $index => $date)
 		{
 			$dates[$index] = $this->getDate($date);
 		}
 
-		$bank_holidays = array();
+		$bank_holidays = [];
 
 		foreach ($dates as $date)
 		{
@@ -203,7 +203,7 @@ class Carbon extends \Carbon\Carbon {
 	{
 		$date = $this->getDate($date);
 
-		$next_bank_holidays = array();
+		$next_bank_holidays = [];
 
 		$year = static::parse("First day of January {$date->year}");
 
@@ -234,7 +234,7 @@ class Carbon extends \Carbon\Carbon {
 	{
 		$date = $this->getDate($date);
 
-		$previous_bank_holidays = array();
+		$previous_bank_holidays = [];
 
 		$year = static::parse("First day of January {$date->year}");
 
@@ -261,4 +261,35 @@ class Carbon extends \Carbon\Carbon {
 		return $previous_bank_holidays;
 	}
 
+	public function bankHolidaysSince($date)
+	{
+		$start = $this->getDate($date);
+		$end = $this;
+
+		if ($end->lt($start))
+		{
+			$temp = $end;
+			$end = $start;
+			$start = $temp;
+		}
+
+		$years = [];
+
+		for ($i = $start->year; $i <= $end->year; $i++)
+		{
+			$years[] = $i;
+		}
+
+		$holidays = $this->getBankHolidays($years);
+
+		foreach ($holidays as $date => $holiday)
+		{
+			if (! (new static($date))->between($start, $end))
+			{
+				unset($holidays[$date]);
+			}
+		}
+
+		return $holidays;
+	}
 }

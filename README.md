@@ -90,6 +90,10 @@ $c->previousBankHolidays($n);
 $c->nextBankHolidays($n, Carbon::parse('Next year May 1st'));
 $c->previousBankHolidays($n, Carbon::parse('Next year May 1st'));
 
+// Returns the list of bank holidays between two dates
+$start = Carbon::now();
+$end = Carbon::now()->subYear(1);
+$holidays = $start->bankHolidaysSince($end);
 ```
 
 <a name="issues"></a>
