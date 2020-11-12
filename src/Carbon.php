@@ -84,6 +84,12 @@ class Carbon extends \Carbon\Carbon {
 			return '2012-06-04';
 		}
 
+		if ($date->year == 2022)
+		{
+			// Moved for Platinum Jubilee of Elizabeth II
+			return '2022-06-02';
+		}
+
 		$day_of_week = (new static)->parse("{$date->year}-05-31")->dayOfWeek;
 
 		$day_of_week == 0 AND $spring_bank_holiday = "{$date->year}-05-25";
@@ -168,6 +174,7 @@ class Carbon extends \Carbon\Carbon {
 			$date->year == 2002 AND $bank_holidays['2002-06-03'] = 'Golden Jubilee Holiday';
 			$date->year == 2011 AND $bank_holidays['2011-04-29'] = 'Royal Wedding Bank Holiday';
 			$date->year == 2012 AND $bank_holidays['2012-06-05'] = 'Diamond Jubilee Holiday';
+			$date->year == 2022 AND $bank_holidays['2022-06-03'] = 'Platinum Jubilee Holiday';
 		}
 
 		ksort($bank_holidays);
