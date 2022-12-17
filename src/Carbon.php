@@ -176,6 +176,7 @@ class Carbon extends \Carbon\Carbon {
 			$date->year == 2012 AND $bank_holidays['2012-06-05'] = 'Diamond Jubilee Holiday';
 			$date->year == 2022 AND $bank_holidays['2022-06-03'] = 'Platinum Jubilee Holiday';
 			$date->year == 2022 AND $bank_holidays['2022-09-19'] = 'State Funeral of Queen Elizabeth II';
+			$date->year == 2023 AND $bank_holidays['2023-05-08'] = 'Coronation of King Charles III';
 		}
 
 		ksort($bank_holidays);
