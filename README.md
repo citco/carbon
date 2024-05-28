@@ -103,7 +103,7 @@ Bug reports and feature requests can be submitted on the [Github Issue Tracker](
 <a name="requirements"></a>
 ### Requirements
 
-PHP 7.1.8 or above (For older PHP versions, please use the version 1.x of this package)
+PHP 8.1 or above (For older PHP versions, please use the version 1.x or 2.x of this package)
 
 <a name="license"></a>
 ### License
